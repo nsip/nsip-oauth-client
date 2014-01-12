@@ -24,3 +24,19 @@ Edit `./example-oauth2orize-consumer.js` to point to your desired oauth2 provide
     node ./server 3001
 
 Then visit <http://localhost:3001> and play around.
+
+NSIP modifications
+===
+
+Local and provider configuration has been completely moved to the configuration
+files {local,provider}-config.js (respectively). Sample configurations are
+provided in the .dist files.
+
+local-config.js contains the protocol and host on which the OAuth 2 client
+(i.e. the web server, relying party, etc) is running.
+
+provider-config.js contains information for the OAuth 2 server: its address,
+and the client ID and secret. Note that the OAuth endpoints are hard-coded to
+/oauth/authorize and /oauth/token; these match the accompanying
+nsip-oauth-server package.
+
