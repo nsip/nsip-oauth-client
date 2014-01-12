@@ -10,12 +10,7 @@
     , server
     , port = process.argv[2] || 0
     , pConf = require('./provider-config')
-    , lConf = {
-        protocol: "http"
-      //, host: "oauth2consumer.helloworld3000.com:3001"
-      , host: "oauth2consumer.helloworld3000.com:3001"
-      }
-    , opts = { clientId: 'abc123', clientSecret: 'ssh-secret' }
+    , lConf = require('./local-config')
     ;
 
   if (!connect.router) {
@@ -43,8 +38,8 @@
 
   passport.use(new ExampleOauth2orizeConsumerStrategy({
       // see https://github.com/jaredhanson/oauth2orize/blob/master/examples/all-grants/db/clients.js
-      clientID: opts.clientId
-    , clientSecret: opts.clientSecret
+      clientID: pConf.clientID
+    , clientSecret: pConf.clientSecret
     , callbackURL: lConf.protocol + "://" + lConf.host + "/auth/example-oauth2orize/callback"
     }
   , function (accessToken, refreshToken, profile, done) {
