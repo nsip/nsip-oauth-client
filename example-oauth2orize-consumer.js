@@ -45,7 +45,7 @@ var util = require('util')
  */
 function Strategy(options, verify) {
   options = options || {};
-  options.authorizationURL = options.authorizationURL || (pConf.protocol + '://' + pConf.host + '/dialog/authorize');
+  options.authorizationURL = options.authorizationURL || (pConf.protocol + '://' + pConf.host + '/oauth/authorize');
   options.tokenURL = options.tokenURL || (pConf.protocol + '://' + pConf.host + '/oauth/token');
   
   OAuth2Strategy.call(this, options, verify);
